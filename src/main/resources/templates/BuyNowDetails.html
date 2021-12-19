@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+
+	<title>BuyNow Product</title>
+	<!-- Bootstrap core CSS -->
+	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+	<!-- Additional CSS Files -->
+	<link th:href="@{/css/fontawesome.css}" rel="stylesheet" />
+	<link th:href="@{/css/tooplate-main.css}" rel="stylesheet" />
+	<link th:href="@{/css/owl.css}" rel="stylesheet" />
+
+	<link rel="stylesheet" type="text/css" href="cart.css">
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+	integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+	integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+	crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+	
+
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+*{
+
+	font-family: 'Comfortaa', cursive;
+
+	margin: 0;
+
+	padding: 0;
+
+	box-sizing: border-box;
+
+}
+.float-container {
+	border: 3px solid #fff;
+	padding: 20px;
+}
+
+.float-child {
+	height: 20%;
+	width: 20%;
+	float: left;
+	padding: 20px;
+	border: 2px solid;
+	margin-left: 20px;
+}
+
+.card {
+	height: auto;
+	width: 90%;
+}
+.container{
+
+	max-width: 1200px;
+
+	margin: 0 auto;
+
+}
+
+.container > h1{
+
+	padding: 20px 0;
+
+}
+
+.cart{
+
+	display: flex;
+
+}
+
+.products{
+
+	flex: 0.75;
+
+}
+
+.product{
+
+	display: flex;
+
+	width: 100%;
+
+	height: 200px;
+
+	overflow: hidden;
+
+	border: 1px solid silver;
+
+	margin-bottom: 20px;
+
+}
+
+.product:hover{
+
+	border: none;
+
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+	transform: scale(1.01);
+
+}
+
+.product > img{
+
+	width: 300px;
+
+	height: 200px;
+
+	object-fit: cover;
+
+}
+
+.product > img:hover{
+
+	transform: scale(1.04);
+
+}
+
+.product-info{
+
+	padding: 20px;
+
+	width: 100%;
+
+	position: relative;
+
+}
+
+.product-name, .product-price, .product-offer{
+
+	margin-bottom: 20px;
+
+}
+
+.product-remove{
+
+	position: absolute;
+
+	bottom: 20px;
+
+	right: 20px;
+
+	padding: 10px 25px;
+
+	background-color: green;
+
+	color: white;
+
+	cursor: pointer;
+
+	border-radius: 5px;
+
+}
+
+.product-remove:hover{
+
+	background-color: white;
+
+	color: green;
+
+	font-weight: 600;
+
+	border: 1px solid green;
+
+}
+
+.product-quantity > input{
+
+	width: 40px;
+
+	padding: 5px;
+
+	text-align: center;
+
+}
+
+.fa{
+
+	margin-right: 5px;
+
+}
+
+.cart-total{
+
+	flex: 0.25;
+
+	margin-left: 20px;
+
+	padding: 20px;
+
+	height: 240px;
+
+	border: 1px solid silver;
+
+	border-radius: 5px;
+
+}
+
+.cart-total p{
+
+	display: flex;
+
+	justify-content: space-between;
+
+	margin-bottom: 30px;
+
+	font-size: 20px;
+
+}
+
+.cart-total a{
+
+	display: block;
+
+	text-align: center;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	background-color: tomato;
+
+	color: white;
+
+	text-decoration: none;
+
+}
+
+.cart-total a:hover{
+
+	background-color: red;
+
+}
+
+@media screen and (max-width: 700px){
+
+	.remove{
+
+		display: none;
+
+	}
+
+	.product{
+
+		height: 150px;
+
+	}
+
+	.product > img{
+
+		height: 150px;
+
+		width: 200px;
+
+	}
+
+	.product-name, .product-price, .product-offer{
+
+		margin-bottom: 10px;
+
+	}
+
+}
+
+@media screen and (max-width: 900px){
+
+	.cart{
+
+		flex-direction: column;
+
+	}
+
+	.cart-total{
+
+		margin-left: 0;
+
+		margin-bottom: 20px;
+
+	}
+
+}
+
+@media screen and (max-width: 1220px){
+
+	.container{
+
+		max-width: 95%;
+
+	}
+
+}
+</style>
+
+
+<body>
+	<!-- Pre Header -->
+<div id="pre-header">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <span>Buy Now</span>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+
+<div class="container">
+
+	<h1>Shopping Cart</h1>
+
+	<div class="cart">
+
+		<div class="products">
+
+			<div class="product" style="border-radius: 5px;">
+
+			<div style="margin: auto; width:50%; height:100%;">
+				<img src="bag1.jpg" style="width: 100%; height: 100%;" th:src="*{'data:image/jpeg;base64,'+{product.prodImage}}" >
+			</div>
+				<div class="product-info" th:with="discountedPrice=${(product.prodPrice-(product.prodPrice*(product.prodDiscount/100)))}">
+
+					<h3 class="product-name" th:text="${product.prodName}">New Bag</h3>
+
+					<h4 class="product-price"><span th:text="${#numbers.formatDecimal(discountedPrice,3,2,'POINT')}">2</span>&ensp;<strike><span style="color: red;" th:text="${product.prodPrice}">2,000</span></strike></h4>
+
+					<h4 class="product-offer" ><span th:text="${product.prodDiscount}">40%</span><span>&#37;</span></h4>
+
+					<p class="product-quantity">Quantity: <input id="quan" type="number" name="prodQuantity" value="1" min="1" max="100" th:oninput="'javaScript:updateValue(this.value,' + ${product.prodPrice} + ',' + ${product.prodDiscount} + ');'">
+					
+				</div>
+
+				<script th:inline="javaScript">
+
+					var quantity=0;
+					function updateValue(val,price,discount){
+						quantity=val;
+						var Total_price = (price-(price*(discount/100)))*val;
+						var savedAmount = (price*(discount/100))*val;
+						document.getElementById("numberOfItems").innerHTML = val;
+						document.getElementById("total").innerHTML = Total_price;
+						document.getElementById("saved").innerHTML = savedAmount;
+					}
+
+					function SendDetails(val){
+					window.location.href="http://localhost:9090/buyItem/"+quantity+"/"+val;
+				}
+				</script>
+			</div>
+
+		</div>
+
+		<div class="cart-total">
+
+			<p>
+
+				<span>Total Price</span>
+
+				<span id="total" th:text="${(product.prodPrice-(product.prodPrice*(product.prodDiscount/100)))}"> 3,000</span>
+
+			</p>
+
+			<p>
+
+				<span>Number of Items</span>
+
+				<span id="numberOfItems">1</span>
+
+			</p>
+
+			<p>
+
+				<span>You Save</span>
+
+				<strike><span id="saved" style="color: red;" th:text="${#numbers.formatDecimal((product.prodPrice*(product.prodDiscount/100)),3,2,'POINT')}"> 1,000</span></strike>
+
+			</p>
+			
+			<!--<button style="font: bold; font-size: large; width: 250px; height: 30px; border: none; background-color:deepskyblue; color: white;" th:onclick="'javaScript:SendDetails(' + ${product.prodId} + ');'">Proceed to Checkout</button>-->
+			<button style="font: bold; font-size: large;" th:onclick="'javaScript:SendDetails(' + ${product.prodId} + ');'" class="btn btn-success">Proceed to Checkout</button>
+		</div>
+
+	</div>
+
+</div>
+
+<!-- Footer Starts Here -->
+<div class="footer">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="logo">
+			<img th:src="@{/Images/aapslogo.png}" alt="">
+		  </div>
+		</div>
+		<div class="col-md-12">
+			  
+		  <div class="footer-menu">
+			<ul>
+			  <li><a href="/userIndex">Home</a></li>
+			  <li><a href="/productDashboard">Products</a></li>
+			  <li><a th:href="@{/profile/}+${session.id}">Profile</a></li>
+			  <li><a href="/mycart">My Cart</a></li>
+			  <li><a href="/logout">Log Out</a></li>
+			</ul>
+		  </div>
+		</div>
+		<div class="col-md-12">
+		  <div class="social-icons">
+			<ul>
+			  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			  <li><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- Footer Ends Here -->
+
+
+  <!-- Sub Footer Starts Here -->
+  <div class="sub-footer">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="copyright-text">
+			<p>Copyright &copy; 2021 AAPS
+			  
+			  - Design: <a rel="nofollow" href=""> AAPS</a></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- Sub Footer Ends Here -->
+
+
+</body>
+
+
+</html>

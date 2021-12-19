@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<title>User Profile</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+	 <!-- Bootstrap core CSS -->
+	 <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+	 <!-- Additional CSS Files -->
+	 <link th:href="@{/css/fontawesome.css}" rel="stylesheet" />
+	 <link th:href="@{/css/tooplate-main.css}" rel="stylesheet" />
+	 <link th:href="@{/css/owl.css}" rel="stylesheet" />
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<style>
+.float-container {
+	border: 3px solid #fff;
+	padding: 20px;
+}
+
+.float-child {
+	height: 20%;
+	width: 20%;
+	float: left;
+	padding: 20px;
+	border: 2px solid;
+	margin-left: 20px;
+}
+ .navbar navbar-expand-lg navbar-dark bg-dark{
+background-color: grey;
+}
+
+.card {
+	height: auto;
+	width: 90%;
+}
+</style>
+</head>
+<body>
+<!-- Pre Header -->
+<div id="pre-header">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <span>Profile Page</span>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+	<div class="container">
+	  <a class="navbar-brand" href="#"><img th:src="@{/Images/updateaapslogo.png}" alt=""></a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto">
+		  <li class="nav-item active">
+			<a class="nav-link" href="/userIndex">Home 
+			</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/productDashboard">Products</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" th:href="@{/profile/}+${session.id}">Profile<span class="sr-only">(current)</span></a>
+		  </li>
+			<li class="nav-item">
+		   <a class="nav-link" href="/mycart">My Cart</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" th:href="@{/orderPage/}+${session.id}">My Orders</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/aboutPage">About Us</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/contactUs">Contact Us</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/logout">Log Out</a>
+		  </li>
+		  
+		</ul>
+	  </div>
+	</div>
+  </nav>
+
+	<div class="container">
+     	<div class="row d-flex justify-content-center">
+            <div class="col-md-10 mt-5 pt-5">
+             	<div class="row z-depth-3">
+                 	<div class="col-sm-4 bg-info rounded-left">
+        		        <div class="card-block text-center text-white">
+                		    <i class="fas fa-user-tie fa-7x mt-5"></i>
+                    		<h2 class="font-weight-bold mt-4"><p th:text="${custName}"></p></h2>
+                    		<p>USER</p><i class="far fa-edit fa-2x mb-4"></i>
+                		</div>
+            		</div>
+            		<div class="col-sm-8 bg-white rounded-right">
+                    	<h3 class="mt-3 text-center">Information</h3>
+                    	<hr class="bg-primary mt-0 w-25">
+                   		<div class="row">
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Email:</p>
+                           		<h6 class=" text-muted"><p th:text="${custEmail}"></p></h6>
+                        	</div>
+                        	<div class="col-sm-6">
+                            	<p class="font-weight-bold">Phone:</p>
+                           		<h6 class="text-muted"><p th:text="${custMobile}"></p></h6>
+                        	</div>
+							<div class="col-sm-6">
+                            	<p class="font-weight-bold">Address:</p>
+                           		<h6 class="text-muted"><p th:text="${custAddress}"></p></h6>
+                        	</div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="singlebutton"></label>
+                                <div class="col-md-4">
+                                  <a href="" th:href="@{/updateProfile/}+${custId}"><input type="button" id="singlebutton" value="EDIT PROFILE" class="btn btn-primary"></a>
+                                </div>
+                                </div>
+                    	
+                	   	<hr class="bg-primary">
+                	     
+              		</div>
+             	</div>
+            </div>
+        </div>
+	</div>
+
+	<!-- Footer Starts Here -->
+    <div class="footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12">
+			  
+			</div>
+			<div class="col-md-12">
+			  
+			</div>
+			
+		  </div>
+		</div>
+	  </div>
+	  <!-- Footer Ends Here -->
+  
+  
+	  <!-- Sub Footer Starts Here -->
+	  <div class="sub-footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12">
+			  <div class="copyright-text">
+				<p>Copyright &copy; 2021 AAPS
+				  
+				  - Design: <a rel="nofollow" href=""> AAPS</a></p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- Sub Footer Ends Here -->
+</body>
+</html>
